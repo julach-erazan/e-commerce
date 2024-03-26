@@ -33,7 +33,7 @@ const Topbar = () => {
   ];
 
   return (
-    <div className="w-full h-[40px] bg-[#2F3C7E] text-[#fff] flex justify-center items-center">
+    <div className="topbar w-full h-[40px] bg-[#2F3C7E] text-[#fff] flex justify-center items-center">
       <div className="w-[15%] h-[40px] flex">
         <div className="w-[50%] h-[40px] flex justify-center items-center">
           <Dropdown List={countryList} />
