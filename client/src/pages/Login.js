@@ -1,9 +1,11 @@
 import React from "react";
+import Reassuarance from "../components/Reassuarance";
+import Footer from "../components/Footer";
 
 const Login = () => {
   return (
-    <div className="w-full flex justify-center items-center pt-[150px]">
-      <form action="POST" className="w-[400px] h-[400px] flex flex-col">
+    <div className="w-full flex flex-col justify-center items-center pt-[150px]">
+      <form action="POST" className="w-[400px] flex flex-col">
         <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Login in to your account
         </h1>
@@ -36,6 +38,8 @@ const Login = () => {
           Sign in
         </button>
       </form>
+      <Reassuarance />
+      <Footer />
     </div>
   );
 };

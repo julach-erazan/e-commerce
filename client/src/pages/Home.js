@@ -1,4 +1,5 @@
 import React from "react";
+import Reassuarance from "../components/Reassuarance";
 
 const Home = () => {
   return (
@@ -6,6 +7,7 @@ const Home = () => {
       <div className="w-full">
         <img className="w-full" src="/Images/shoppingGirls.jpg" alt="" />
       </div>
+      <Reassuarance />
     </div>
   );
 };

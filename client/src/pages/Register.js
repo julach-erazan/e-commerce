@@ -1,15 +1,16 @@
 import React from "react";
+import Reassuarance from "../components/Reassuarance";
 
 const Register = () => {
   return (
-    <div className="w-full flex justify-center items-center pt-[150px]">
-      <form action="POST" className="w-[400px] h-[400px] flex flex-col">
+    <div className="w-full flex flex-col justify-center items-center pt-[150px]">
+      <form action="POST" className="w-[400px] flex flex-col">
         <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Create an account
         </h1>
         <h2 className="text-[15px] text-[#E4552D] text-center font-semibold mb-[20px]">
           <u>
-            <a href="/register">Already have an account? Log in instead!</a>
+            <a href="/login">Already have an account? Log in instead!</a>
           </u>
         </h2>
 
@@ -73,9 +74,10 @@ const Register = () => {
           className="h-[40px] text-[#fff] font-semibold bg-[#2F3C7E] hover:bg-[#E4552D] mt-[50px]"
           type="submit"
         >
-          Sign in
+          Save
         </button>
       </form>
+      <Reassuarance />
     </div>
   );
 };
