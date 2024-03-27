@@ -2,18 +2,40 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="w-full h-[500px] flex justify-center items-center">
-      <div className="w-[600px] h-[500px]">
-        <h1 className="text-[25px] text-[#2F3C7E] font-bold mb-[20px]">
+    <div className="w-full flex justify-center items-center pt-[150px]">
+      <form action="POST" className="w-[400px] h-[400px] flex flex-col">
+        <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Login in to your account
         </h1>
-
-        <h2 className="text-[15px] text-[#E4552D] font-semibold">
+        <h2 className="text-[15px] text-[#E4552D] text-center font-semibold mb-[20px]">
           <u>
             <a href="/register">No account? Create one here</a>
           </u>
         </h2>
-      </div>
+
+        <label htmlFor="email" className="text-left">
+          Email
+        </label>
+        <input type="text" />
+
+        <label htmlFor="password" className="text-left">
+          Password
+        </label>
+        <input type="text" />
+
+        <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
+          <u>
+            <a href="/register">Forgot your password?</a>
+          </u>
+        </h2>
+
+        <button
+          className="h-[40px] text-[#fff] font-semibold bg-[#2F3C7E] hover:bg-[#E4552D] mt-[50px]"
+          type="submit"
+        >
+          Sign in
+        </button>
+      </form>
     </div>
   );
 };
