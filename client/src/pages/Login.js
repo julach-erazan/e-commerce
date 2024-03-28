@@ -3,9 +3,21 @@ import Reassuarance from "../components/Reassuarance";
 import Footer from "../components/Footer";
 
 const Login = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    // Logging form data
+    console.log({
+      email: formData.get("email"),
+      password: formData.get("password"),
+    });
+  };
+
   return (
     <div className="w-full flex flex-col justify-center items-center pt-[150px]">
-      <form action="POST" className="w-[400px] flex flex-col">
+      <form onSubmit={handleSubmit} className="w-[400px] flex flex-col">
         <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Login in to your account
         </h1>
@@ -18,12 +30,12 @@ const Login = () => {
         <label htmlFor="email" className="text-left">
           Email
         </label>
-        <input type="text" />
+        <input type="email" id="email" name="email" />
 
         <label htmlFor="password" className="text-left">
           Password
         </label>
-        <input type="text" />
+        <input type="password" id="password" name="password" />
 
         <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
           <u>

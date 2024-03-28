@@ -1,5 +1,6 @@
 import React from "react";
 import Reassuarance from "../components/Reassuarance";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
         <img className="w-full" src="/Images/shoppingGirls.jpg" alt="" />
       </div>
       <Reassuarance />
+      <Footer />
     </div>
   );
 };
