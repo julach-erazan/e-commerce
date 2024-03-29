@@ -1,12 +1,11 @@
-import React from "react";
 import Topbar from "./Topbar";
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <div className="header w-full absolute z-10">
+    <div className="header w-full relative z-10">
       <Topbar />
-      <Navbar />
+      <Navbar scrollPosition={props.scrollPosition} />
     </div>
   );
 };

@@ -7,46 +7,45 @@ const handleSubmit = (event) => {
 
   const formData = new FormData(event.target);
 
+  // Logging form data
+  const title = formData.get("title");
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
+  const email = formData.get("email");
+  const password = formData.get("password");
+
   fetch("https://fakestoreapi.com/users", {
     method: "POST",
     body: JSON.stringify({
-      email: "John@gmail.com",
-      username: "johnd",
-      password: "m38rmF$",
+      email: email,
+      password: password,
+      title: title,
       name: {
-        firstname: "John",
-        lastname: "Doe",
+        firstname: firstName,
+        lastname: lastName,
       },
-      address: {
-        city: "kilcoole",
-        street: "7835 new road",
-        number: 3,
-        zipcode: "12926-3874",
-        geolocation: {
-          lat: "-37.3159",
-          long: "81.1496",
-        },
-      },
-      phone: "1-570-236-7033",
     }),
   })
     .then((res) => res.json())
-    .then((json) => console.log(json));
-
-  // // Logging form data
-  // console.log({
-  //   title: formData.get("title"),
-  //   firstName: formData.get("firstName"),
-  //   lastName: formData.get("lastName"),
-  //   email: formData.get("email"),
-  //   password: formData.get("password"),
-  // });
+    .then((json) => {
+      if (json.id === 1) {
+        alert("Registered Successfully!");
+      } else {
+        alert("Internal Server Error!");
+      }
+      //Reset form
+      document.getElementById("registerForm").reset();
+    });
 };
 
 const Register = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[150px]">
-      <form onSubmit={handleSubmit} className="w-[400px] flex flex-col">
+    <div className="w-full flex flex-col justify-center items-center pt-[100px]">
+      <form
+        onSubmit={handleSubmit}
+        id="registerForm"
+        className="w-[400px] flex flex-col"
+      >
         <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Create an account
         </h1>
@@ -114,10 +113,20 @@ const Register = () => {
         </label>
         <input type="password" id="password" name="password" />
 
-        <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
-          <u>
-            <a href="/register">Forgot your password?</a>
-          </u>
+        <h2 className="text-[15px] text-[#2f3c7e] font-bold">
+          <input
+            type="checkbox"
+            className="h-[15px] m-0 mr-[10px] text-[15px]"
+          />
+          I agree to The Nines{" "}
+          <a href="#" className="hover:text-[#E4552D] hover:underline">
+            Terms and Conditions
+          </a>{" "}
+          and{" "}
+          <a href="#" className="hover:text-[#E4552D] hover:underline">
+            Privacy Policy
+          </a>
+          .
         </h2>
 
         <button

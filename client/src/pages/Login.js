@@ -3,16 +3,32 @@ import Reassuarance from "../components/Reassuarance";
 import Footer from "../components/Footer";
 
 const Login = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
 
     // Logging form data
-    console.log({
-      email: formData.get("email"),
-      password: formData.get("password"),
-    });
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    fetch("https://fakestoreapi.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        // Log the response
+        console.log("Response:", res);
+        return res.json();
+      })
+      .then((json) => console.log(json))
+      .catch((error) => console.error("Error:", error));
   };
 
   return (
@@ -39,7 +55,7 @@ const Login = () => {
 
         <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
           <u>
-            <a href="/register">Forgot your password?</a>
+            <a href="#">Forgot your password?</a>
           </u>
         </h2>
 
