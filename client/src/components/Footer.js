@@ -6,8 +6,8 @@ import { ImPinterest2 } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <div className="w-full h-[225px] bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center mt-[30px]">
-      <div className="w-[20%] h-[90%] p-[10px]">
+    <div className="w-full bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center p-[20px] mt-[30px]">
+      <div className="w-[20%] h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">Contact us</h1>
         <h1 className="text-[18px] font-semibold mt-[20px]">Follow us!</h1>
         <div className="min-w-[150px] text-[40px] font-semibold mt-[20px] flex justify-between flex-wrap">
@@ -25,7 +25,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[20%] h-[90%] p-[10px]">
+      <div className="w-[20%] h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">About us</h1>
         <div className="w-[70%] text-[14px] font-semibold flex flex-col mt-[20px]">
           <a href="#">
@@ -42,7 +42,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[20%] h-[90%] p-[10px]">
+      <div className="w-[25%] h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">Useful links</h1>
         <div className="w-[70%] text-[14px] font-semibold flex flex-col mt-[20px]">
           <a href="#">
@@ -65,7 +65,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[20%] h-[90%] p-[10px]">
+      <div className="w-[20%] h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">
           Suscribe to our newsletter!
         </h1>

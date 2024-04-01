@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Newarrivals from "./pages/Newarrivals";
+import Tshirts from "./pages/Tshirts";
+import Cloths from "./pages/Cloths";
+import Jewelery from "./pages/Jewelery";
 
 function App() {
   const headerRef = useRef(null);
@@ -39,6 +43,10 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/newarrivals" element={<Newarrivals />} />
+          <Route path="/tshirts" element={<Tshirts />} />
+          <Route path="/cloths" element={<Cloths />} />
+          <Route path="/jewelery" element={<Jewelery />} />
         </Routes>
       </BrowserRouter>
     </div>

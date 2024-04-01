@@ -39,7 +39,7 @@ const Login = () => {
         </h1>
         <h2 className="text-[15px] text-[#E4552D] text-center font-semibold mb-[20px]">
           <u>
-            <a href="/register">No account? Create one here</a>
+            <a href="/register?data=1">No account? Create one here</a>
           </u>
         </h2>
 
