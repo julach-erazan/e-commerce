@@ -2,41 +2,50 @@ import React, { useEffect, useState } from "react";
 import Reassuarance from "../components/Reassuarance";
 import Footer from "../components/Footer";
 
-const Tshirts = () => {
+const Search = () => {
+  const [message, setMessage] = useState();
   const [products, setProducts] = useState([]);
 
-  const getProducts = () => {
-    fetch("https://fakestoreapi.com/products/category/women's clothing")
+  var queryString = window.location.search;
+  var queryParams = new URLSearchParams(queryString);
+  var key = queryParams.get("key");
+
+  const searchProducts = () => {
+    fetch(`https://fakestoreapi.com/products/category/women's clothing/`)
       .then((res) => res.json())
       .then((json) => {
-        setProducts(json);
+        // Check if key is present
+        if (key) {
+          // Filter products based on the key
+          const filteredProducts = json.filter((product) =>
+            product.title.toLowerCase().includes(key.toLowerCase())
+          );
+          setProducts(filteredProducts);
+          if (filteredProducts[0]) {
+            setMessage("Search Results");
+          } else {
+            setMessage("No Search Results Found");
+          }
+        } else {
+          setMessage("No Search Results Found");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
       });
   };
 
   useEffect(() => {
-    getProducts();
+    searchProducts();
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[100px] ">
-      <div className="w-[1000px] h-[400px] flex justify-evenly items-center mb-[25px]">
-        <img
-          src="/Images/tshirt.png"
-          alt="banner"
-          className="w-[650px] h-full"
-        />
-        <div className="w-[350px] h-full text-[#fff] bg-[#2F3C7E] flex flex-col justify-center items-start p-[50px]">
-          <h1 className="text-[30px] font-bold">T Shirts</h1>
-          <h2>
-            To ensure you're always at the pinnacle of elegance, The Nines
-            offers a large range of shirts that are made in Europe and available
-            in a selection of high-end fabrics. Our models come in 3 cuts to fit
-            your body perfectly and in a large selection of classic or
-            contemporary collars that can be adapted to suit your face.
-          </h2>
-        </div>
-      </div>
-      <ul className="w-full flex justify-evenly items-center flex-wrap">
+    <div className="w-full flex flex-col justify-center items-center pt-[100px]">
+      <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
+        {message}
+      </h1>
+      <ul className="w-full min-h-[200px] flex justify-evenly items-center flex-wrap p-[20px]">
         {products.map((data) => (
           <li key={data.id}>
             <a href={`/product?id=${data.id}`}>
@@ -65,4 +74,4 @@ const Tshirts = () => {
   );
 };
 
-export default Tshirts;
+export default Search;

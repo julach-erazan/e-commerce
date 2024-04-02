@@ -6,7 +6,7 @@ import { ImPinterest2 } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center p-[20px] mt-[30px]">
+    <div className="w-full min-w-[1000px] bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center p-[20px] mt-[30px]">
       <div className="w-[20%] h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">Contact us</h1>
         <h1 className="text-[18px] font-semibold mt-[20px]">Follow us!</h1>

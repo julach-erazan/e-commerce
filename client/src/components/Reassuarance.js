@@ -6,7 +6,7 @@ import { TfiWallet } from "react-icons/tfi";
 
 const Reassuarance = () => {
   return (
-    <div className="w-full h-[100px] mt-[30px] text-[#2F3C7E] flex justify-evenly items-center">
+    <div className="w-full min-w-[1000px] h-[100px] mt-[30px] text-[#2F3C7E] flex justify-evenly items-center">
       <a href="#" className="flex flex-col justify-center items-center">
         <LiaShippingFastSolid className="text-[50px]" />
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">

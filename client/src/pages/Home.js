@@ -4,15 +4,6 @@ import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
 
 const Home = () => {
-  const images = [
-    "/Images/girl.jpg",
-    "/Images/girl.png",
-    "/Images/shoppingGirls.jpg",
-    "/Images/girl.jpg",
-    "/Images/girl.png",
-    "/Images/shoppingGirls.jpg",
-  ];
-
   return (
     <div className="w-full">
       <div className="w-full">
@@ -23,12 +14,12 @@ const Home = () => {
         />
       </div>
 
-      <div className="w-full h-[500px] flex flex-col justify-center items-center">
+      <div className="w-full h-[600px] flex flex-col justify-center items-center p-[20px]">
         <h1 className="w-full text-[30px] text-[#2F3C7E] font-bold">
           New arrivals
         </h1>
-        <div className="w-full h-[400px] flex justify-center items-center p-[20px]">
-          <ImageCarousel images={images} interval={3000} />
+        <div className="w-full h-[500px] mt-[25px] px-[20px]">
+          <ImageCarousel />
         </div>
       </div>
       <Reassuarance />

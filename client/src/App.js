@@ -9,6 +9,9 @@ import Newarrivals from "./pages/Newarrivals";
 import Tshirts from "./pages/Tshirts";
 import Cloths from "./pages/Cloths";
 import Jewelery from "./pages/Jewelery";
+import Search from "./pages/Search";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 function App() {
   const headerRef = useRef(null);
@@ -35,7 +38,10 @@ function App() {
   }, []);
 
   return (
-    <div ref={headerRef} className="App w-screen h-screen overflow-y-scroll">
+    <div
+      ref={headerRef}
+      className="App w-screen min-w-[1000px] h-screen overflow-y-scroll"
+    >
       <Header scrollPosition={scrollPosition} />
 
       <BrowserRouter>
@@ -47,6 +53,9 @@ function App() {
           <Route path="/tshirts" element={<Tshirts />} />
           <Route path="/cloths" element={<Cloths />} />
           <Route path="/jewelery" element={<Jewelery />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>

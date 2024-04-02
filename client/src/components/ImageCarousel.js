@@ -1,64 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const ImageCarousel = ({ images, interval = 3000 }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const ImageCarousel = () => {
+  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, interval);
-
-    return () => clearInterval(intervalId);
-  }, [images, interval]);
-
-  const prevBtn = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+  const getProducts = () => {
+    fetch("https://fakestoreapi.com/products/category/women's clothing")
+      .then((res) => res.json())
+      .then((json) => {
+        setProducts(json);
+      });
   };
 
-  const nextBtn = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 3000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
   };
 
   return (
-    <div className="relative w-full h-full bg-[red] overflow-hidden">
-      <ul className="relative w-[100px] h-[100px] flex justify-evenly items-center">
-        {images.map((imageURL, index) => (
-          <li
-            key={index}
-            className={`w-full h-full absolute top-0 left-full transition-transform duration-500 transform translate-x-full ${
-              index === currentImageIndex
-                ? "translate-x-0"
-                : index < currentImageIndex
-                ? "-translate-x-full"
-                : "translate-x-full"
-            }`}
-          >
-            <img
-              src={imageURL}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </li>
-        ))}
+    <div>
+      <ul className="w-full items-center">
+        <Slider {...settings}>
+          {products.map((data) => (
+            <li key={data.id} className="w-[350px] h-[450px]">
+              <a href={`/product?id=${data.id}`}>
+                <div className="w-[350px] h-[450px] flex flex-col justify-center items-center border-[5px] border-solid border-[#cacafa] hover:border-[5px] hover:border-solid hover:border-[#2F3C7E]">
+                  <img
+                    src={data.image}
+                    alt="produccts"
+                    className="w-[330px] h-[330px]"
+                  />
+                  <div className="w-full h-[90px] flex justify-between items-center p-[10px]">
+                    <h1 className="w-[70%] h-full text-[#2F3C7E] flex justify-center items-center">
+                      {data.title}
+                    </h1>
+                    <h1 className="w-[20%] h-full text-[#E4552D] font-bold flex justify-center items-center">
+                      ${data.price}
+                    </h1>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </Slider>
       </ul>
-      <button
-        onClick={prevBtn}
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2 bg-gray-800 text-white rounded-l-lg"
-      >
-        Prev
-      </button>
-      <button
-        onClick={nextBtn}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 px-4 py-2 bg-gray-800 text-white rounded-r-lg"
-      >
-        Next
-      </button>
     </div>
   );
 };

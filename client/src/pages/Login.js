@@ -18,17 +18,20 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        password: password,
+        username: email, //"mor_2314"
+        password: password, //"83r5^_"
       }),
     })
-      .then((res) => {
-        // Log the response
-        console.log("Response:", res);
-        return res.json();
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        if (json.token) {
+          alert("Logging Successfully");
+        } else {
+          alert("Invalid Email or Password !");
+        }
       })
-      .then((json) => console.log(json))
-      .catch((error) => console.error("Error:", error));
+      .catch((err) => alert("Invalid Email or Password !"));
   };
 
   return (
@@ -46,7 +49,7 @@ const Login = () => {
         <label htmlFor="email" className="text-left">
           Email
         </label>
-        <input type="email" id="email" name="email" />
+        <input type="text" id="email" name="email" />
 
         <label htmlFor="password" className="text-left">
           Password
