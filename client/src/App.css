@@ -1,3 +1,9 @@
+.banner {
+  background-image: url("/public/Images/shoppingGirls.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 input {
   height: 40px;
   border: 1px solid #cadcfc;

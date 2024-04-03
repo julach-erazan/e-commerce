@@ -56,7 +56,6 @@ const Product = () => {
         oldCart[existingItemIndex].count = count;
 
         alert("Updated product successfully added to your shopping cart");
-        sessionStorage.setItem("refresh", "refresh");
       } else {
         const newItem = {
           id: id,
@@ -67,7 +66,6 @@ const Product = () => {
         };
         oldCart.push(newItem);
         alert("Product successfully added to your shopping cart");
-        sessionStorage.setItem("refresh", "refresh");
       }
 
       const updatedCart = JSON.stringify(oldCart);
@@ -80,7 +78,6 @@ const Product = () => {
       let cartData = JSON.stringify(cart);
       sessionStorage.setItem("cart", cartData);
       alert("Product successfully added to your shopping cart");
-      sessionStorage.setItem("refresh", "refresh");
     }
   };
 

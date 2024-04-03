@@ -18,16 +18,16 @@ const Footer = () => {
         <h1 className="text-[18px] font-semibold mt-[20px]">Follow us!</h1>
         <div className="min-w-[150px] text-[40px] font-semibold mt-[20px] flex justify-between flex-wrap">
           <a href="#">
-            <CiFacebook className="my-[5px]" />
+            <CiFacebook className="m-[5px]" />
           </a>
           <a href="#">
-            <PiInstagramLogo className="my-[5px]" />
+            <PiInstagramLogo className="m-[5px]" />
           </a>
           <a href="#">
-            <SlSocialYoutube className="my-[5px]" />
+            <SlSocialYoutube className="m-[5px]" />
           </a>
           <a href="#">
-            <ImPinterest2 className="text-[35px] my-[5px]" />
+            <ImPinterest2 className="text-[35px] m-[5px]" />
           </a>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuUser2 } from "react-icons/lu";
@@ -7,9 +7,10 @@ import { GrShop } from "react-icons/gr";
 const Navbar = (props) => {
   const [onSearch, setOnSearch] = useState(false);
   const [count, setCount] = useState(0);
-  const [miliSec, setMiliSec] = useState();
 
-  const time = new Date();
+  // var queryString = window.location.search;
+  // var queryParams = new URLSearchParams(queryString);
+  // var data = queryParams.get("data");
 
   const Links = [
     {

@@ -73,7 +73,7 @@ const Cart = () => {
                         </h1>
                         <h1 className="w-[20%] text-center">{product.count}</h1>
                         <h1 className="w-[20%] text-center">
-                          $ {product.count * product.price}
+                          $ {(product.count * product.price).toFixed(2)}
                         </h1>
                         <div className="w-[20%] flex justify-center items-center">
                           <button

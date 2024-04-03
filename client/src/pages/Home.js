@@ -6,12 +6,17 @@ import ImageCarousel from "../components/ImageCarousel";
 const Home = () => {
   return (
     <div className="w-full">
-      <div className="w-full">
-        <img
-          className="w-full"
-          src="/Images/shoppingGirls.jpg"
-          alt="bg-image"
-        />
+      <div className="banner w-full h-[700px] flex justify-end items-center">
+        <div className="w-[35%] h-full flex flex-col justify-center items-center">
+          <h1 className="w-full text-[70px] text-[#f4f4f4] font-bold">
+            Lorem ipsum dolor
+          </h1>
+          <a href="/newarrivals">
+            <button className="w-[120px] h-[40px] bg-[#f4f4f4] hover:bg-[#2F3C7E] mt-[20px] text-[#2F3C7E] hover:text-[#f4f4f4] font-semibold">
+              Shop Now
+            </button>
+          </a>
+        </div>
       </div>
 
       <div className="w-full h-[600px] flex flex-col justify-center items-center p-[20px]">
