@@ -5,6 +5,10 @@ input {
   padding: 5px 10px;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 input:focus {
   outline: none;
   border: 1px solid #2f3c7e;

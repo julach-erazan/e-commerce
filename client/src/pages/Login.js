@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Reassuarance from "../components/Reassuarance";
 import Footer from "../components/Footer";
 
 const Login = () => {
+  const [token, setToken] = useState();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -24,9 +26,9 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         if (json.token) {
-          alert("Logging Successfully");
+          sessionStorage.setItem("token", json.token);
+          window.location.reload();
         } else {
           alert("Invalid Email or Password !");
         }
@@ -34,41 +36,64 @@ const Login = () => {
       .catch((err) => alert("Invalid Email or Password !"));
   };
 
+  useEffect(() => {
+    setToken(sessionStorage.getItem("token"));
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <div className="w-full flex flex-col justify-center items-center pt-[150px]">
-      <form onSubmit={handleSubmit} className="w-[400px] flex flex-col">
-        <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
-          Login in to your account
-        </h1>
-        <h2 className="text-[15px] text-[#E4552D] text-center font-semibold mb-[20px]">
-          <u>
-            <a href="/register?data=1">No account? Create one here</a>
-          </u>
-        </h2>
+      {token ? (
+        <div className="w-[400px] h-[300px] flex flex-col">
+          <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
+            Loggin Successfully
+          </h1>
+          <button
+            className="h-[40px] text-[#fff] font-semibold bg-[#2F3C7E] hover:bg-[#E4552D] mt-[100px]"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="w-[400px] flex flex-col">
+          <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
+            Login in to your account
+          </h1>
+          <h2 className="text-[15px] text-[#E4552D] text-center font-semibold mb-[20px]">
+            <u>
+              <a href="/register?data=1">No account? Create one here</a>
+            </u>
+          </h2>
 
-        <label htmlFor="email" className="text-left">
-          Email
-        </label>
-        <input type="text" id="email" name="email" />
+          <label htmlFor="email" className="text-left">
+            Email
+          </label>
+          <input type="text" id="email" name="email" />
 
-        <label htmlFor="password" className="text-left">
-          Password
-        </label>
-        <input type="password" id="password" name="password" />
+          <label htmlFor="password" className="text-left">
+            Password
+          </label>
+          <input type="password" id="password" name="password" />
 
-        <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
-          <u>
-            <a href="#">Forgot your password?</a>
-          </u>
-        </h2>
+          <h2 className="text-[15px] text-[#E4552D] text-center font-semibold">
+            <u>
+              <a href="#">Forgot your password?</a>
+            </u>
+          </h2>
 
-        <button
-          className="h-[40px] text-[#fff] font-semibold bg-[#2F3C7E] hover:bg-[#E4552D] mt-[50px]"
-          type="submit"
-        >
-          Sign in
-        </button>
-      </form>
+          <button
+            className="h-[40px] text-[#fff] font-semibold bg-[#2F3C7E] hover:bg-[#E4552D] mt-[50px]"
+            type="submit"
+          >
+            Sign in
+          </button>
+        </form>
+      )}
       <Reassuarance />
       <Footer />
     </div>

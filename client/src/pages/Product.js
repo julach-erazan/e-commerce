@@ -8,7 +8,7 @@ const Product = () => {
 
   var queryString = window.location.search;
   var queryParams = new URLSearchParams(queryString);
-  var id = queryParams.get("id");
+  var _id = queryParams.get("id");
   var j_id = queryParams.get("j_id");
 
   const getProducts = async () => {
@@ -29,7 +29,7 @@ const Product = () => {
       )
         .then((res) => res.json())
         .then((json) => {
-          const filteredProducts = json.filter((product) => product.id == id);
+          const filteredProducts = json.filter((product) => product.id == _id);
           setProducts(filteredProducts);
         })
         .catch((err) => {
@@ -41,17 +41,47 @@ const Product = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  });
 
-  const addCart = (e) => {
-    e.preventDefault();
+  const addCart = (id, image, title, price) => {
+    if (sessionStorage.getItem("cart")) {
+      const oldCart = JSON.parse(sessionStorage.getItem("cart"));
 
-    const formData = new FormData(e.target);
-    const qty = formData.get("count");
+      const existingItemIndex = oldCart.findIndex((item) => item.id == id);
 
-    console.log(qty);
+      if (existingItemIndex !== -1) {
+        oldCart[existingItemIndex].image = image;
+        oldCart[existingItemIndex].title = title;
+        oldCart[existingItemIndex].price = price;
+        oldCart[existingItemIndex].count = count;
 
-    // window.location = "/cart";
+        alert("Updated product successfully added to your shopping cart");
+        sessionStorage.setItem("refresh", "refresh");
+      } else {
+        const newItem = {
+          id: id,
+          image: image,
+          title: title,
+          price: price,
+          count: count,
+        };
+        oldCart.push(newItem);
+        alert("Product successfully added to your shopping cart");
+        sessionStorage.setItem("refresh", "refresh");
+      }
+
+      const updatedCart = JSON.stringify(oldCart);
+      sessionStorage.setItem("cart", updatedCart);
+    } else {
+      const cart = [
+        { id: id, image: image, title: title, price: price, count: count },
+      ];
+
+      let cartData = JSON.stringify(cart);
+      sessionStorage.setItem("cart", cartData);
+      alert("Product successfully added to your shopping cart");
+      sessionStorage.setItem("refresh", "refresh");
+    }
   };
 
   return (
@@ -66,10 +96,10 @@ const Product = () => {
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-[50%]"
+                className="w-[40%] max-h-[60%]"
               />
             </div>
-            <div className="w-[40%] h-[700px] flex flex-col justify-center items-center p-[25px]">
+            <div className="w-[40%] min-h-[700px] flex flex-col justify-center items-center p-[25px]">
               <div className="w-full">
                 <h1 className="text-[30px] text-[#2F3C7E] font-semibold mb-[20px]">
                   {product.title}
@@ -90,23 +120,30 @@ const Product = () => {
                   {product.description}
                 </h2>
               </div>
-              <form className="w-full font-semibold" onSubmit={addCart}>
+              <div className="w-full font-semibold">
                 <input
                   type="number"
-                  name="count"
-                  id="count"
-                  className="w-[20%] h-[50px] text-center border-[1px] border-solid border-[#2F3C7E] focus:border-none m-0"
+                  name="qty"
+                  id="qty"
+                  className="w-[20%] h-[50px] text-center border-[1px] border-solid border-[#2F3C7E] m-0"
                   value={count}
                   onChange={(e) => setCount(e.target.value)}
                   min={1}
                 />
                 <button
                   className="w-[80%] h-[50px] text-[#fff] text-center bg-[#2F3C7E] hover:bg-[#E4552D]"
-                  type="submit"
+                  onClick={() =>
+                    addCart(
+                      product.id,
+                      product.image,
+                      product.title,
+                      product.price
+                    )
+                  }
                 >
                   Add to cart
                 </button>
-              </form>
+              </div>
             </div>
           </li>
         ))}

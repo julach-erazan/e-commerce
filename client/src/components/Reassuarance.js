@@ -12,7 +12,7 @@ const Reassuarance = () => {
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">
           Fast delivery
         </h1>
-        <h2 className="text-[12px] ">Free delivery in E.U from 150€*.</h2>
+        <h2 className="text-[12px] ">Free delivery in E.U from $150*.</h2>
       </a>
 
       <a href="#" className="flex flex-col justify-center items-center">

@@ -24,12 +24,10 @@ function App() {
       }
     };
 
-    // Add event listener to listen for scroll events on the header
     if (headerRef.current) {
       headerRef.current.addEventListener("scroll", handleScroll);
     }
 
-    // Remove event listener when the component unmounts
     return () => {
       if (headerRef.current) {
         headerRef.current.removeEventListener("scroll", handleScroll);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuUser2 } from "react-icons/lu";
@@ -6,9 +6,10 @@ import { GrShop } from "react-icons/gr";
 
 const Navbar = (props) => {
   const [onSearch, setOnSearch] = useState(false);
-  // var queryString = window.location.search;
-  // var queryParams = new URLSearchParams(queryString);
-  // var data = queryParams.get("data");
+  const [count, setCount] = useState(0);
+  const [miliSec, setMiliSec] = useState();
+
+  const time = new Date();
 
   const Links = [
     {
@@ -42,6 +43,15 @@ const Navbar = (props) => {
 
     window.location = `/search?key=${searchKey}`;
   };
+
+  const handleCartCount = () => {
+    if (sessionStorage.getItem("cart")) {
+      const cart = JSON.parse(sessionStorage.getItem("cart"));
+      setCount(cart.length);
+    }
+  };
+
+  setInterval(handleCartCount);
 
   return (
     <nav
@@ -113,6 +123,9 @@ const Navbar = (props) => {
           href="/cart"
           className="w-[50px] h-[50px] flex justify-center items-center"
         >
+          <div className="w-[16px] h-[16px] rounded-[50%] bg-[#E4552D] text-[#fff] text-[10px] flex justify-center items-center relative top-[-5px] left-[30px]">
+            <h1>{count}</h1>
+          </div>
           <GrShop />
         </a>
       </div>

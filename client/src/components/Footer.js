@@ -3,8 +3,14 @@ import { CiFacebook } from "react-icons/ci";
 import { PiInstagramLogo } from "react-icons/pi";
 import { SlSocialYoutube } from "react-icons/sl";
 import { ImPinterest2 } from "react-icons/im";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Footer = () => {
+  const handleNewsLetter = (e) => {
+    e.preventDefault();
+
+    //api here
+  };
   return (
     <div className="w-full min-w-[1000px] bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center p-[20px] mt-[30px]">
       <div className="w-[20%] h-[230px] p-[10px]">
@@ -69,6 +75,26 @@ const Footer = () => {
         <h1 className="text-[18px] font-semibold">
           Suscribe to our newsletter!
         </h1>
+        <h2 className="text-[14px] mt-[20px]">
+          You may unsubscribe at any moment. For that purpose, please find our
+          contact info in the legal notice.
+        </h2>
+        <form
+          action=""
+          className="w-full flex border-[1px] border-[#fff] mt-[50px]"
+          onSubmit={handleNewsLetter}
+        >
+          <input
+            type="email"
+            name=""
+            id=""
+            className="w-full bg-[#ffffff00] border-none focus:border-none m-0"
+            placeholder="My e-mail"
+          />
+          <button className="w-[40px] h-[40px]" type="submit">
+            <AiOutlineMail className="text-[25px]" />
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const Newarrivals = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[100px]">
+    <div className="w-full min-w-[1000px] flex flex-col justify-center items-center pt-[100px]">
       <div className="w-[1000px] h-[400px] flex justify-evenly items-center mb-[25px]">
         <img src="/Images/girl.jpg" alt="banner" className="w-[600px] h-full" />
         <div className="w-[400px] h-full text-[#fff] bg-[#2F3C7E] flex flex-col justify-center items-start p-[50px]">
