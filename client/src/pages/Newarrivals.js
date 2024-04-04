@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 
 const Newarrivals = () => {
   const [products, setProducts] = useState([]);
+  const currencySymbol = sessionStorage.getItem("currencySymbol");
 
   const getProducts = () => {
     fetch("https://fakestoreapi.com/products/category/women's clothing")
@@ -35,7 +36,7 @@ const Newarrivals = () => {
       <ul className="w-full flex justify-evenly items-center flex-wrap">
         {products.map((data) => (
           <li key={data.id}>
-            <a href={`/product?id=${data.id}`}>
+            <a href={`/product?id=${data.id}&data=1`}>
               <div className="w-[350px] h-[450px] flex flex-col justify-center items-center border-[5px] border-solid border-[#cacafa] hover:border-[5px] hover:border-solid hover:border-[#2F3C7E] m-[25px]">
                 <img
                   src={data.image}
@@ -47,7 +48,8 @@ const Newarrivals = () => {
                     {data.title}
                   </h1>
                   <h1 className="w-[20%] h-full text-[#E4552D] font-bold flex justify-center items-center">
-                    ${data.price}
+                    {currencySymbol}
+                    {data.price}
                   </h1>
                 </div>
               </div>

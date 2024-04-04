@@ -8,26 +8,26 @@ const Navbar = (props) => {
   const [onSearch, setOnSearch] = useState(false);
   const [count, setCount] = useState(0);
 
-  // var queryString = window.location.search;
-  // var queryParams = new URLSearchParams(queryString);
-  // var data = queryParams.get("data");
+  var queryString = window.location.search;
+  var queryParams = new URLSearchParams(queryString);
+  var data = queryParams.get("data");
 
   const Links = [
     {
       name: "NEW ARRIVALS",
-      link: "/newarrivals",
+      link: "/newarrivals?data=1",
     },
     {
       name: "T-SHIRTS",
-      link: "/tshirts",
+      link: "/tshirts?data=1",
     },
     {
       name: "CLOTHS",
-      link: "/cloths",
+      link: "/cloths?data=1",
     },
     {
       name: "JEVELERY",
-      link: "/jewelery",
+      link: "/jewelery?data=1",
     },
   ];
 
@@ -42,7 +42,7 @@ const Navbar = (props) => {
 
     const searchKey = formData.get("search");
 
-    window.location = `/search?key=${searchKey}`;
+    window.location = `/search?key=${searchKey}&data=1`;
   };
 
   const handleCartCount = () => {
@@ -56,10 +56,12 @@ const Navbar = (props) => {
 
   return (
     <nav
-      className={`navbar w-full min-w-[1000px] h-[70px] text-[#2F3C7E] flex justify-evenly items-center ${
-        props.scrollPosition >= 40
-          ? "fixed top-0 bg-[#fff] drop-shadow"
-          : " absolute"
+      className={`navbar w-full min-w-[1000px] h-[70px]  flex justify-evenly items-center ${
+        props.scrollPosition >= 45
+          ? "fixed top-0 bg-[#fff] drop-shadow z-10"
+          : " absolute z-10"
+      } ${
+        data || props.scrollPosition >= 45 ? "text-[#2F3C7E]" : "text-[#fff]"
       }`}
     >
       <div className="w-[15%] min-w-[150px] h-[50px] flex justify-center items-center">
@@ -72,7 +74,7 @@ const Navbar = (props) => {
           {Links.map((data) => (
             <li key={data.name}>
               <a href={data.link}>
-                <h1 className="font-semibold hover:text-[#E4552D] mx-[10px]">
+                <h1 className={`font-semibold hover:text-[#E4552D] mx-[10px]`}>
                   {data.name}
                 </h1>
               </a>
@@ -89,13 +91,13 @@ const Navbar = (props) => {
             type="text"
             name="search"
             id="search"
-            className="w-[150px] h-[35px] border-none focus:border-none m-0"
+            className="w-[150px] h-[35px] text-[#2F3C7E] border-none focus:border-none m-0"
           />
           <button
             type="submit"
             className="w-[40px] h-[40px] flex justify-center items-center"
           >
-            <h1>OK</h1>
+            <h1 className="text-[#2F3C7E]">OK</h1>
           </button>
         </form>
       </div>
@@ -121,7 +123,7 @@ const Navbar = (props) => {
         </button>
 
         <a
-          href="/cart"
+          href="/cart?data=1"
           className="w-[50px] h-[50px] flex justify-center items-center"
         >
           <div className="w-[16px] h-[16px] rounded-[50%] bg-[#E4552D] text-[#fff] text-[10px] flex justify-center items-center relative top-[-5px] left-[30px]">

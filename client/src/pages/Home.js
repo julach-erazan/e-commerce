@@ -8,11 +8,11 @@ const Home = () => {
     <div className="w-full">
       <div className="banner w-full h-[700px] flex justify-end items-center">
         <div className="w-[35%] h-full flex flex-col justify-center items-center">
-          <h1 className="w-full text-[70px] text-[#f4f4f4] font-bold">
-            Lorem ipsum dolor
+          <h1 className="w-full text-[70px] text-[#fff] font-bold">
+            Lorem Ipsum Dolor
           </h1>
           <a href="/newarrivals">
-            <button className="w-[120px] h-[40px] bg-[#f4f4f4] hover:bg-[#2F3C7E] mt-[20px] text-[#2F3C7E] hover:text-[#f4f4f4] font-semibold">
+            <button className="w-[120px] h-[40px] bg-[#fff] hover:bg-[#2F3C7E] mt-[20px] text-[#2F3C7E] hover:text-[#f4f4f4] font-semibold">
               Shop Now
             </button>
           </a>
@@ -23,7 +23,7 @@ const Home = () => {
         <h1 className="w-full text-[30px] text-[#2F3C7E] font-bold">
           New arrivals
         </h1>
-        <div className="w-full h-[500px] mt-[25px] px-[20px]">
+        <div className="w-full min-w-[1000px] h-[400px] mt-[25px]">
           <ImageCarousel />
         </div>
       </div>

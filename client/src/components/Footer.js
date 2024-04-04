@@ -71,7 +71,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[20%] h-[230px] p-[10px]">
+      <div className="w-[20%] min-h-[230px] p-[10px]">
         <h1 className="text-[18px] font-semibold">
           Suscribe to our newsletter!
         </h1>

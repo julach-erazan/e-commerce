@@ -11,6 +11,8 @@ const Product = () => {
   var _id = queryParams.get("id");
   var j_id = queryParams.get("j_id");
 
+  const currencySymbol = sessionStorage.getItem("currencySymbol");
+
   const getProducts = async () => {
     if (j_id) {
       await fetch("https://fakestoreapi.com/products/category/jewelery")
@@ -104,7 +106,8 @@ const Product = () => {
               </div>
               <div className="w-full">
                 <h1 className="text-[27px] text-[#E4552D] font-semibold mb-[20px]">
-                  ${product.price}
+                  {currencySymbol}
+                  {product.price}
                 </h1>
               </div>
               <div className="w-full">

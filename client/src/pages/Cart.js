@@ -9,15 +9,10 @@ const Cart = () => {
   const [itemPrice, setItemPrice] = useState(0);
   const [vat, setVat] = useState(0);
 
-  const totalCount = cart.reduce(
-    (acc, product) => acc + parseFloat(product.count),
-    0
-  ); //All items total count
-  const totalPrice = cart.reduce(
-    (acc, product) =>
-      acc + parseFloat(product.count) * parseFloat(product.price),
-    0
-  ); //Total items price
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const currencySymbol = sessionStorage.getItem("currencySymbol");
 
   useEffect(() => {
     setItemCount(totalCount);
@@ -30,7 +25,21 @@ const Cart = () => {
   //Get Items List
   const handleGetCartData = () => {
     const data = JSON.parse(sessionStorage.getItem("cart"));
-    setCart(data);
+    if (data) {
+      setCart(data);
+
+      setTotalCount(
+        data.reduce((acc, product) => acc + parseFloat(product.count), 0)
+      ); //All items total count
+
+      setTotalPrice(
+        data.reduce(
+          (acc, product) =>
+            acc + parseFloat(product.count) * parseFloat(product.price),
+          0
+        )
+      ); //Total items price
+    }
   };
 
   setInterval(handleGetCartData);
@@ -73,7 +82,8 @@ const Cart = () => {
                         </h1>
                         <h1 className="w-[20%] text-center">{product.count}</h1>
                         <h1 className="w-[20%] text-center">
-                          $ {(product.count * product.price).toFixed(2)}
+                          {currencySymbol}{" "}
+                          {(product.count * product.price).toFixed(2)}
                         </h1>
                         <div className="w-[20%] flex justify-center items-center">
                           <button
@@ -108,12 +118,16 @@ const Cart = () => {
             <div className="w-full flex justify-between items-center">
               <h2 className="text-[15px] font-semibold">{itemCount} items</h2>
               <h2 className="text-[15px] text-[#000] font-semibold">
-                ${itemPrice}
+                {currencySymbol}
+                {itemPrice}
               </h2>
             </div>
             <div className="w-full flex justify-between items-center border-t-[1px] border-[#ddd] pt-[10px] mb-[20px]">
               <h2 className="text-[20px] font-semibold">Total (tax incl.)</h2>
-              <h2 className="text-[20px] font-semibold">${vat.toFixed(2)}</h2>
+              <h2 className="text-[20px] font-semibold">
+                {currencySymbol}
+                {vat.toFixed(2)}
+              </h2>
             </div>
             <button
               className={`w-full h-[45px] text-[#fff] font-semibold text-center bg-[#2F3C7E]
