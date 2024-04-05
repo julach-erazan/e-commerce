@@ -19,14 +19,14 @@ const Cloths = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[100px]">
-      <div className="w-[1000px] h-[400px] flex justify-evenly items-center mb-[25px]">
+    <div className="w-full min-w-[350px] flex flex-col justify-center items-center pt-[100px]">
+      <div className="lg:w-[1000px] lg:h-[400px] flex flex-wrap justify-evenly items-center mb-[25px]">
         <img
           src="/Images/cloths.jpg"
           alt="banner"
-          className="w-[650px] h-full"
+          className="w-[90%] lg:w-[650px] h-full"
         />
-        <div className="w-[350px] h-full text-[#fff] bg-[#2F3C7E] flex flex-col justify-center items-start p-[50px]">
+        <div className="w-[90%] lg:w-[350px] h-full text-[#fff] bg-[#2F3C7E] flex flex-col justify-center items-start p-[50px]">
           <h1 className="text-[30px] font-bold">Cloths</h1>
           <h2>
             Rediscover the pleasure of dressing well, without the guilt. That's
