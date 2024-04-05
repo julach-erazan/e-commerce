@@ -40,11 +40,11 @@ const handleSubmit = (event) => {
 
 const Register = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[100px]">
+    <div className="w-full min-w-[350px] flex flex-col justify-center items-center pt-[100px]">
       <form
         onSubmit={handleSubmit}
         id="registerForm"
-        className="w-[400px] flex flex-col"
+        className="w-[90%] md:w-[400px] flex flex-col"
       >
         <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
           Create an account

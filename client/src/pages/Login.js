@@ -46,9 +46,9 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center pt-[150px]">
+    <div className="w-full min-w-[350px] flex flex-col justify-center items-center pt-[150px]">
       {token ? (
-        <div className="w-[400px] h-[300px] flex flex-col">
+        <div className="w-[90%] md:w-[400px] h-[300px] flex flex-col">
           <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
             Loggin Successfully
           </h1>
@@ -60,7 +60,10 @@ const Login = () => {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="w-[400px] flex flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="w-[90%] md:w-[400px] flex flex-col"
+        >
           <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
             Login in to your account
           </h1>
