@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <div className="w-full">
       <div className="banner w-full min-w-[350px] h-[600px] flex justify-end items-center">
-        <div className="w-full md:w-[35%] h-full flex flex-col justify-end lg:justify-center items-center pb-[100px]">
-          <h1 className="w-full text-[40px] text-center md:text-[70px] text-[#fff] font-bold px-[10px]">
+        <div className="w-full md:w-[35%] h-full flex flex-col justify-end lg:justify-center items-center pb-[100px] lg:pb-0">
+          <h1 className="w-full text-[40px] text-center  md:text-[70px] text-[#fff] font-bold px-[10px]">
             Lorem Ipsum Dolor
           </h1>
           <a href="/newarrivals">
@@ -23,7 +23,7 @@ const Home = () => {
         <h1 className="w-full text-[30px] text-[#2F3C7E] font-bold">
           New arrivals
         </h1>
-        <div className="w-full min-w-[1000px] h-[400px] mt-[25px]">
+        <div className="w-full min-w-[350px] h-[400px] mt-[25px] overflow-hidden">
           <ImageCarousel />
         </div>
       </div>

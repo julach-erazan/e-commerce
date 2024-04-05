@@ -51,7 +51,7 @@ const ImageCarousel = () => {
 
   return (
     <div>
-      <ul className="pl-[7%]">
+      <ul className="min-w-[1000px] w-full pl-[7%]">
         <Slider {...settings}>
           {products.map((data) => (
             <li key={data.id} className="w-[300px] h-[400px]">
