@@ -36,10 +36,7 @@ function App() {
   }, []);
 
   return (
-    <div
-      ref={headerRef}
-      className="App w-screen min-w-[1000px] h-screen overflow-y-scroll"
-    >
+    <div ref={headerRef} className="App w-screen h-screen overflow-y-scroll">
       <Header scrollPosition={scrollPosition} />
 
       <BrowserRouter>

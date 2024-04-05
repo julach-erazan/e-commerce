@@ -72,8 +72,8 @@ const Topbar = () => {
   };
 
   return (
-    <div className="topbar w-full h-[45px] bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center px-[25px] py-[5px]">
-      <div className="h-[40px] flex justify-center items-center">
+    <div className="topbar w-full min-w-[350px] xl:h-[45px] bg-[#2F3C7E] text-[#fff] flex flex-wrap-reverse justify-evenly items-center py-[5px]">
+      <div className="w-full lg:w-[240px] h-[30px] flex justify-start items-center pl-[10px]">
         <button
           className="w-[60px] h-[30px] flex justify-evenly items-center"
           onClick={handleCountry}
@@ -93,7 +93,7 @@ const Topbar = () => {
           <FaChevronDown className="text-[15px]" />
         </button>
         <div
-          className={`w-[60px] h-[90px] bg-[#ddd] relative left-[-120px] top-[67px] z-20 ${
+          className={`w-[60px] h-[90px] bg-[#ddd] relative left-[-120px] top-[65px] xl:top-[67px] z-20 ${
             showCountry ? "visible" : "invisible"
           }`}
         >
@@ -113,7 +113,7 @@ const Topbar = () => {
           </ul>
         </div>
         <div
-          className={`w-[60px] h-[90px] bg-[#ddd] relative left-[-120px] top-[67px] z-20 ${
+          className={`w-[60px] h-[90px] bg-[#ddd] relative left-[-120px] top-[65px] xl:top-[67px] z-20 ${
             showCurrency ? "visible" : "invisible"
           }`}
         >
@@ -134,19 +134,23 @@ const Topbar = () => {
         </div>
       </div>
 
-      <div className="w-[450px] h-[30px] flex justify-center items-center mr-[120px]">
-        <a href="#">
-          <h1 className="underline">
-            Express delivery with DHL & easy 30 days returns or exchanges
-          </h1>
-        </a>
-      </div>
+      <div className="flex flex-col lg:flex-row px-[10px]">
+        <div className="w-full lg:w-[450px] lg:h-[30px] text-center lg:text-left flex justify-center items-center mr-[120px]">
+          <a href="#">
+            <h1 className="text-[12px] md:text-[15px] font-semibold underline">
+              Express delivery with DHL & easy 30 days returns or exchanges
+            </h1>
+          </a>
+        </div>
 
-      <div className="w-[200px] h-[30px] flex justify-center items-center">
-        <a href="#" className="h-[30px] flex justify-between items-center">
-          <h1>16299 reviews</h1>
-          <img className="h-[20px]" src="/Images/star.png" alt="rating" />
-        </a>
+        <div className="w-full lg:w-[200px] h-[30px] flex justify-center items-center">
+          <a href="#" className="h-[30px] flex justify-between items-center">
+            <h1 className="text-[12px] md:text-[15px] font-semibold">
+              16299 reviews
+            </h1>
+            <img className="h-[20px]" src="/Images/star.png" alt="rating" />
+          </a>
+        </div>
       </div>
     </div>
   );

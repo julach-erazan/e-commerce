@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const Header = (props) => {
   return (
-    <div className="header w-full min-w-[1000px] relative z-10">
+    <div className="header w-full min-w-[350px] relative z-10">
       <Topbar />
       <Navbar scrollPosition={props.scrollPosition} />
     </div>
