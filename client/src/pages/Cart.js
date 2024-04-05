@@ -57,35 +57,37 @@ const Cart = () => {
   };
 
   return (
-    <div className="w-full min-w-[1000px] pt-[100px]">
+    <div className="w-full min-w-[350px] pt-[100px]">
       <h1 className="text-[30px] text-[#2F3C7E] text-center font-bold mb-[20px]">
         Shopping cart
       </h1>
-      <div className="w-full h-[650px] flex justify-center items-center">
-        <div className="w-[70%] h-full px-[25px] overflow-y-scroll">
+      <div className="w-full lg:h-[650px] flex flex-col lg:flex-row justify-center items-center">
+        <div className="w-[90%] lg:w-[70%] h-full lg:px-[25px] overflow-y-scroll">
           <div className="w-full mb-[20px]">
-            {cart ? (
+            {cart[0] ? (
               <div className="w-full border-t-[1px] border-solid border-[#ddd]">
                 <ul>
                   {cart.map((product, index) => (
                     <li key={index}>
-                      <div className="w-full min-h-[120px] border-b-[1px] border-solid border-[#ddd] flex justify-evenly items-center p-[10px]">
-                        <div className="w-[20%] flex justify-center items-center">
+                      <div className="w-full min-h-[120px] text-[12px] md:text-[15px] border-b-[1px] border-solid border-[#ddd] flex justify-evenly items-center p-[10px]">
+                        <div className="w-[60px] lg:w-[20%] flex justify-center items-center">
                           <img
                             src={product.image}
                             alt={product.title}
-                            className="w-[70px] h-[80px]"
+                            className="w-[50px] lg:w-[70px] h-[60px] lg:h-[80px]"
                           />
                         </div>
-                        <h1 className="w-[20%] flex flex-wrap">
+                        <h1 className="w-[100px] lg:w-[20%] flex text-wrap px-[10px]">
                           {product.title}
                         </h1>
-                        <h1 className="w-[20%] text-center">{product.count}</h1>
-                        <h1 className="w-[20%] text-center">
+                        <h1 className="w-[50px] lg:w-[20%] text-center">
+                          {product.count}
+                        </h1>
+                        <h1 className="w-[50px] lg:w-[20%] text-center">
                           {currencySymbol}{" "}
                           {(product.count * product.price).toFixed(2)}
                         </h1>
-                        <div className="w-[20%] flex justify-center items-center">
+                        <div className="w-[50px] lg:w-[20%] flex justify-center items-center">
                           <button
                             className="w-[30px] h-[30px] flex justify-center items-center"
                             onClick={() => handleDelete(index)}
@@ -110,7 +112,7 @@ const Cart = () => {
             </h1>
           </a>
         </div>
-        <div className="w-[30%] h-full flex flex-col justify-between items-center px-[25px]">
+        <div className="w-[90%] lg:w-[30%] max-w-[550px]  h-full flex flex-col justify-between items-center lg:px-[25px] mt-[50px] lg:mt-0">
           <div className="w-full h-[260px] text-[#E4552D] bg-[#EEEDED] p-[20px] flex flex-col justify-evenly">
             <h1 className="text-[30px] text-[#2F3C7E] font-bold mb-[20px]">
               Your cart
@@ -140,7 +142,7 @@ const Cart = () => {
               Checkout
             </button>
           </div>
-          <div className="w-full min-h-[330px] max-h-[370px] bg-[#EEEDED] p-[20px]">
+          <div className="w-full min-h-[330px] max-h-[370px] bg-[#EEEDED] p-[20px] mt-[30px] lg:mt-0">
             <h1 className="text-[30px] text-[#2F3C7E] font-bold mb-[10px]">
               Informations
             </h1>
