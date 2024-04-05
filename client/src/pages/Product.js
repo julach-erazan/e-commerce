@@ -84,21 +84,21 @@ const Product = () => {
   };
 
   return (
-    <div className="w-full min-w-[1000px] pt-[100px]">
+    <div className="w-full min-w-[350px] pt-[100px]">
       <ul>
         {products.map((product, index) => (
           <li
             key={index}
-            className="w-full flex justify-center items-center p-[25px]"
+            className="w-full flex flex-col lg:flex-row justify-center items-center p-[25px]"
           >
-            <div className="w-[60%] h-[700px] flex justify-center items-center overflow-hidden">
+            <div className="w-[90%] lg:w-[60%] lg:h-[700px] flex justify-center items-center">
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-[40%] max-h-[60%]"
+                className="w-[40%] min-w-[200px] max-h-[60%]"
               />
             </div>
-            <div className="w-[40%] min-h-[700px] flex flex-col justify-center items-center p-[25px]">
+            <div className="w-[90%] lg:w-[40%] min-h-[700px] flex flex-col justify-center items-center p-[25px]">
               <div className="w-full">
                 <h1 className="text-[30px] text-[#2F3C7E] font-semibold mb-[20px]">
                   {product.title}
