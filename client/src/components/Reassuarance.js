@@ -6,8 +6,11 @@ import { TfiWallet } from "react-icons/tfi";
 
 const Reassuarance = () => {
   return (
-    <div className="w-full min-w-[1000px] h-[100px] mt-[30px] text-[#2F3C7E] flex justify-evenly items-center">
-      <a href="#" className="flex flex-col justify-center items-center">
+    <div className="w-full min-w-[350px] lg:h-[110px] mt-[30px] text-[#2F3C7E] flex flex-wrap justify-evenly items-center">
+      <a
+        href="#"
+        className="flex flex-col justify-center items-center mb-[10px]"
+      >
         <LiaShippingFastSolid className="text-[50px]" />
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">
           Fast delivery
@@ -15,7 +18,10 @@ const Reassuarance = () => {
         <h2 className="text-[12px] ">Free delivery in E.U from $150*.</h2>
       </a>
 
-      <a href="#" className="flex flex-col justify-center items-center">
+      <a
+        href="#"
+        className="flex flex-col justify-center items-center mb-[10px]"
+      >
         <GrUpdate className="text-[40px]" />
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">
           100% satisfied
@@ -23,7 +29,10 @@ const Reassuarance = () => {
         <h2 className="text-[12px] ">Easy 30 days returns or exchanges</h2>
       </a>
 
-      <a href="#" className="flex flex-col justify-center items-center">
+      <a
+        href="#"
+        className="flex flex-col justify-center items-center mb-[10px]"
+      >
         <BiPhoneCall className="text-[45px]" />
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">
           Contact us
@@ -31,7 +40,10 @@ const Reassuarance = () => {
         <h2 className="text-[12px] ">A question, an advice?</h2>
       </a>
 
-      <a href="#" className="flex flex-col justify-center items-center">
+      <a
+        href="#"
+        className="flex flex-col justify-center items-center mb-[10px]"
+      >
         <TfiWallet className="text-[45px]" />
         <h1 className="text-[15px] font-bold hover:text-[#E4552D]">
           Secure payments

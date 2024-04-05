@@ -6,9 +6,9 @@ import ImageCarousel from "../components/ImageCarousel";
 const Home = () => {
   return (
     <div className="w-full">
-      <div className="banner w-full h-[700px] flex justify-end items-center">
-        <div className="w-[35%] h-full flex flex-col justify-center items-center">
-          <h1 className="w-full text-[70px] text-[#fff] font-bold">
+      <div className="banner w-full min-w-[350px] h-[600px] flex justify-end items-center">
+        <div className="w-full md:w-[35%] h-full flex flex-col justify-end lg:justify-center items-center pb-[100px]">
+          <h1 className="w-full text-[40px] text-center md:text-[70px] text-[#fff] font-bold px-[10px]">
             Lorem Ipsum Dolor
           </h1>
           <a href="/newarrivals">

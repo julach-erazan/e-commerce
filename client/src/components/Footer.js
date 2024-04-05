@@ -12,11 +12,11 @@ const Footer = () => {
     //api here
   };
   return (
-    <div className="w-full min-w-[1000px] bg-[#2F3C7E] text-[#fff] flex justify-evenly items-center p-[20px] mt-[30px]">
-      <div className="w-[20%] h-[230px] p-[10px]">
+    <div className="w-full min-w-[350px] bg-[#2F3C7E] text-[#fff] flex flex-wrap justify-evenly items-center p-[20px] mt-[30px]">
+      <div className="w-[50%] md:w-[150px] h-[250px] p-[10px]">
         <h1 className="text-[18px] font-semibold">Contact us</h1>
         <h1 className="text-[18px] font-semibold mt-[20px]">Follow us!</h1>
-        <div className="min-w-[150px] text-[40px] font-semibold mt-[20px] flex justify-between flex-wrap">
+        <div className="max-w-[200px] text-[30px] font-semibold mt-[20px] flex justify-between flex-wrap">
           <a href="#">
             <CiFacebook className="m-[5px]" />
           </a>
@@ -27,11 +27,11 @@ const Footer = () => {
             <SlSocialYoutube className="m-[5px]" />
           </a>
           <a href="#">
-            <ImPinterest2 className="text-[35px] m-[5px]" />
+            <ImPinterest2 className="text-[25px] m-[5px]" />
           </a>
         </div>
       </div>
-      <div className="w-[20%] h-[230px] p-[10px]">
+      <div className="w-[50%] md:w-[150px] h-[250px] p-[10px]">
         <h1 className="text-[18px] font-semibold">About us</h1>
         <div className="w-[70%] text-[14px] font-semibold flex flex-col mt-[20px]">
           <a href="#">
@@ -48,7 +48,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[25%] h-[230px] p-[10px]">
+      <div className="w-full md:w-[250px] h-[250px] p-[10px]">
         <h1 className="text-[18px] font-semibold">Useful links</h1>
         <div className="w-[70%] text-[14px] font-semibold flex flex-col mt-[20px]">
           <a href="#">
@@ -71,7 +71,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-[20%] min-h-[230px] p-[10px]">
+      <div className="w-full md:w-[250px] h-[250px] p-[10px]">
         <h1 className="text-[18px] font-semibold">
           Suscribe to our newsletter!
         </h1>
